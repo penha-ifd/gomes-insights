@@ -40,45 +40,33 @@ Use `execute_code` com Python para queries HogQL (project 351731). Consulte `gom
 ## Template
 
 ```
-📦 GOMO — Release Notes
-{semana} — {data}
+🚢 GOMO — O QUE MUDOU EM PRODUÇÃO
+{semana}
 
----
+━━━━━━━━━━━━━━━━━━━━━━━━
 
-🚀 ENTREGAS ({N} PRs mergeados, {M} bugs/tasks concluídos)
+{Release} — {data} — {o que muda para o usuário} — {métrica que deve mexer}
 
-*restu-mobile*
-• {PR title} — {autor} ({Jira key})
-• ...
+━━━━━━━━━━━━━━━━━━━━━━━━
 
-*restu-web*
-• ...
+📊 IMPACTO OBSERVADO
 
----
+{Release} → {métrica} estava {baseline}, foi para {observado} — {delta}
 
-🐛 BUGS RESOLVIDOS
+━━━━━━━━━━━━━━━━━━━━━━━━
 
-✅ SWNPGMO-XXX — {summary}
-✅ ...
+🔧 CORREÇÕES
 
----
-
-📊 MÉTRICAS DA SEMANA
-
-• WAU: {N} ({delta}% vs anterior)
-• Reviews: {N} ({delta}%)
-• Novos cadastros: {N} ({delta}%)
-
----
-
-🔮 TENDÊNCIA
-
-{1-2 parágrafos ligando entregas a métricas. Ex: "WAU subiu 8% — possível efeito do fix de cadastro (SWNPGMO-339) que destravou novos usuários"}
+✅ SWNPGMO-XXX — {summary} — corrigido em {data}
 ```
 
 ## Publicação
 
-Canal `C0BKAVAV8KE` (#gomo-insights). Usar `send_message(action='send', target='slack:#gomo-insights', message='...')`. NUNCA usar `mcp_slack_slack_send_message`.
+Canal `C0BKAVAV8KE` (#gomo-insights). Usar `send_message(action='send', target='slack:C0BKAVAV8KE', message='...')`.
+
+## Nota: atividade de engenharia
+
+Commits e contagem de PRs **não entram** neste report. Vão para `gomes-operations` (#gomes-code). Aqui só entra o que muda o produto para o usuário e pode explicar movimento nas métricas.
 
 ## Pitfalls
 

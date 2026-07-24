@@ -91,7 +91,10 @@ Se um alerta 🔴 não for resolvido em 2 checks consecutivos (1h):
 5. **Reviews zerados pode ser sazonal.** Compare com mesmo dia da semana anterior.
 6. **NUNCA use curl com Authorization header no código.** O scanner de segurança do cron bloqueia. Use `execute_code` com Python `urllib` + `os.environ`.
 7. **PostHog API key está em `$POSTHOG_API_KEY`.** Acesse via `os.environ['POSTHOG_API_KEY']` dentro do `execute_code`.
-8. **NUNCA use `mcp_slack_slack_send_message`.** Posta como Tiago Penha (OAuth). Use `send_message(action='send', target='slack:#gomes-code', message='...')` para postar como @Gomes.
+8. **NUNCA use `mcp_slack_slack_send_message`.**
+9. **Se houver onda de distribuição ativa (evento `abertura-sementes`), severidade de bugs de cadastro/onboarding sobe automaticamente.** SWNPGMO-339 com 8k pessoas divulgando não é HIGH — é CRÍTICO. A janela de divulgação não se repete.
+10. **Sempre cruzar com `log/eventos/` antes de atribuir causa.** Se houver release ou campanha sobreposta, declarar confundidor e reduzir confiança para "baixa".
+11. **Só poste se houver anomalia.** Silêncio = sistema saudável. Não spamme o canal com "tudo ok".
 
 ## Changelog
 

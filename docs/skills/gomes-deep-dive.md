@@ -29,32 +29,42 @@ Você é o **Gomes** fazendo análise aprofundada de métricas. Diferente do rad
 
 ## Tipos de Análise
 
-### 1. Queda de WAU
+### 1. Retenção por grau (análise de maior retorno hoje)
+```
+D1/D7/D30 separado por origem:
+- Semente (~8k iFood): retenção mede engajamento com iniciativa, não com produto
+- 1º grau (trazido por semente): sinal real, com viés social positivo
+- Orgânico (loja): sinal mais limpo, mesmo com n pequeno
+
+Query: cruzar user_registered.source com coorte de Application Became Active
+Se source não está instrumentado → item #1 de "DECIDIR HOJE"
+```
+
+### 2. Funil de ativação
+```
+Cadastro → 1º review → 2º review → Ativo em D7
+Tempo mediano até 1º review.
+O 2º review é o preditor mais forte de retenção em produto social.
+Gargalo se <40% de cadastros publicam 1º review em 7d.
+```
+
+### 3. Densidade local
+```
+Usuários por cidade (mediana e top 3)
+% da base nas 3 maiores cidades
+Cidades com ≥100 usuários ativos (massa crítica)
+Restaurantes com ≥3 reviews (% do catálogo)
+Rede social não funciona sem massa crítica local — 1.462 ÷ 69 = ~21/cidade.
+```
+
+### 4. Queda de DAU (mantido do v1)
 ```
 Hipóteses a testar:
-1. Queda em cidade específica? (GROUP BY city)
-2. Queda em plataforma específica? (iOS vs Android)
-3. Queda em coorte específica? (novos vs antigos)
+1. Queda em segmento específico? (semente vs 1º grau vs orgânico)
+2. Queda em cidade específica?
+3. Queda em plataforma específica? (iOS vs Android)
 4. Bug conhecido no período? (cruzar com Jira)
-5. Feriado/evento externo? (web search)
-```
-
-### 2. Queda de Retenção
-```
-1. D1/D7/D15/D30 por coorte semanal (últimas 4 semanas)
-2. Retenção por plataforma (iOS vs Android)
-3. Retenção por cidade
-4. Retenção de novos usuários (primeira sessão na semana)
-5. Correlação com features lançadas (Jira concluded)
-```
-
-### 3. Investigação de Churn
-```
-1. Usuários que eram WAU em W-1 e não são em W (coorte)
-2. Comportamento antes do churn: última sessão, últimos eventos
-3. Churn por perfil: criadores de conteúdo vs consumidores
-4. Churn por cidade
-5. Churn por tempo desde cadastro
+5. Release ou campanha sobreposta? (cruzar com log/eventos/)
 ```
 
 ## Template de Resposta
