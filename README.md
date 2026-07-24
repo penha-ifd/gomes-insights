@@ -97,6 +97,7 @@ Gomes é o sistema multi-agente de produto e engenharia do **Gomo** (app social 
 | Fonte | O que extrai | Skills |
 |---|---|---|
 | **PostHog** (project 351731) | DAU, WAU, MAU, retenção, reviews, funis, sessões | insights, deep-dive, oncall |
+| **MCP Gomo** (`executar_sql`) | Banco de produção: usuários, reviews, coleções, cidades | insights, deep-dive, oncall |
 | **GitHub** (mmarqueti/restu-mobile, restu-web) | Commits, PRs, linhas de código | insights, release-notes, pr-reviewer |
 | **Jira** (SWNPGMO) | Bugs, tasks, sprint progress | bug-triage, insights, release-notes, oncall |
 | **Google News / Web** | Movimentos de concorrentes, tendências | insights, competitive-alert |
@@ -112,16 +113,21 @@ Gomes é o sistema multi-agente de produto e engenharia do **Gomo** (app social 
 
 ## Estrutura do Repo
 
+Este repo é o **runtime** do Gomes. A **memória** fica em `gomo-memoria` (spec: `docs/memoria-spec.md`).
+
 ```
-gomes-insights/
-├── README.md              ← este arquivo
-├── AGENT-RATIONALE.md     ← racional completo da criação do agente
-├── PIPELINE.md            ← documentação do pipeline agêntico
-├── radar/                 ← radares diários (YYYY-MM-DD.md)
-├── trends/                ← séries temporais (metrics.jsonl)
-├── decisions/             ← feedbacks e decisões do canal
-│   └── bugs/              ← triagens de bugs
-└── skills/                ← referência das skills (symlink ou cópia)
+gomes-insights/              ← runtime (skills, crons, dashboards)
+├── README.md
+├── AGENT-RATIONALE.md
+├── PIPELINE.md
+├── CRONJOBS.md
+├── docs/
+│   └── memoria-spec.md      ← spec da base de memória agêntica
+├── radar/                   ← radares diários (YYYY-MM-DD.md)
+├── trends/                  ← séries temporais (metrics.jsonl)
+├── decisions/               ← feedbacks e decisões do canal
+│   └── bugs/                ← triagens de bugs
+└── skills/                  ← referência das skills
 ```
 
 ## Como recriar do zero
