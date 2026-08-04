@@ -8,21 +8,25 @@ Data: 2026-08-04 · Autor: Gomes · Solicitante: Mairon Carvalho
 - Ground truth de cadastro: tabela `users` via MCP (1.604 cadastrados).
 - Outlier removido: usuário cb1062… (235 sessões/semana, 225 com duração 0 — provável emulador/instância sempre aberta).
 
-## Veredito de validação
-| Perfil hipotético | Existe? | Tamanho (WAU) | Veredito |
-|---|---|---|---|
-| Influencer | ✅ Sim, forte | 116 (30,1%) | Validado. Renomear para **Criador**. |
-| Sociável | ⚠️ Fraco | 18 (4,7%) | Existe em forma embrionária, pequeno demais para segmento estratégico. |
-| Explorador | ✅ Sim | 49 (12,7%) | Validado, mas raso (2,1 views de restaurante/usuário/30d). |
-| — (não previsto) | 🚨 **52,5% do WAU** | 202 | **Espectador**: abre o app e não faz nada rastreado. 63% nem são cadastrados. |
+## Veredito de validação (somente usuários COM conta — 1.604 cadastrados)
+> Filtro aplicado a pedido de Mairon (04/ago): desconsiderar quem não tem conta (device-only). WAU registrado = 251.
 
-## Métricas por perfil (janela 7d salvo indicação)
-| Perfil | WAU | % WAU | Acessos/sem (mediana) | p90 acessos | Duração sessão (mediana) | Cadastrados |
-|---|---|---|---|---|---|---|
-| Criador | 116 | 30,1% | **5** | 58 | **~38s** | 95% |
-| Interator | 18 | 4,7% | 3 | 13 | ~20s | 100% |
-| Navegador | 49 | 12,7% | 2 | 6 | ~27–41s | 100% |
-| Espectador | 202 | 52,5% | 2 | 5 | ~15–20s | 37% |
+| Perfil hipotético | Existe? | Tamanho (WAU reg.) | Veredito |
+|---|---|---|---|
+| Influencer | ✅ Sim, forte | 110 (43,8%) | Validado. Renomear para **Criador**. |
+| Sociável | ⚠️ Fraco | 18 (7,2%) | Existe em forma embrionária, pequeno demais para segmento estratégico. |
+| Explorador | ✅ Sim | 49 (19,5%) | Validado, mas raso (2,1 views de restaurante/usuário/30d). |
+| — (não previsto) | ⚠️ **29,5% do WAU reg.** | 74 | **Espectador**: conta criada, mas abre o app e não faz nada rastreado. |
+
+## Métricas por perfil (somente registrados; janela 7d salvo indicação)
+| Perfil | WAU | % WAU | Acessos/sem (mediana) | p90 acessos | Duração sessão (mediana) |
+|---|---|---|---|---|---|
+| Criador | 110 | 43,8% | **5** | 61 | **~38s** |
+| Interator | 18 | 7,2% | 3 | 13 | ~20s |
+| Navegador | 49 | 19,5% | 2 | 6 | ~27–41s |
+| Espectador | 74 | 29,5% | 2 | 6 | ~17s |
+
+Os 3 perfis hipotetizados explicam **70,5% do WAU registrado** (43,8 + 7,2 + 19,5).
 
 ## Indicadores que defendem cada perfil
 
@@ -46,11 +50,10 @@ Data: 2026-08-04 · Autor: Gomes · Solicitante: Mairon Carvalho
 - Zero criação, zero interação — puro discovery ("onde vou comer").
 - Sessões curtas (2/semana) mas engajamento de leitura (27–41s) acima de Interator/Espectador.
 
-### 4. Espectador — 202 WAU (não previsto pelo Mairon)
-- Abre o app 2×/semana e sai: nenhum evento de navegação, busca ou interação.
-- **63% não têm conta cadastrada** (device-only) vs 95–100% nos demais perfis.
-- Em 30d: 2.117 usuários (79% dos ativos) se comportam assim — a maioria abre uma vez e some.
-- É um sintoma de funil de ativação, não um perfil de persona.
+### 4. Espectador — 74 WAU registrados (29,5%; 850 em 30d — 60,6%)
+- Criou conta, abre o app 2×/semana e sai: nenhum evento de navegação, busca ou interação rastreada.
+- Em 30d: 850 registrados (60,6%) se comportam assim — a maioria abriu uma vez e não voltou.
+- Mesmo sem device-only, o problema de ativação persiste: conta criada ≠ uso. É sintoma de funil, não persona.
 
 ## Refino de nomes (proposta)
 | Hipótese | Nome proposto | Por quê |
