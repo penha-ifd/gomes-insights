@@ -47,6 +47,25 @@ Os 2 perfis comportamentais hipotetizados (Criador + Navegador) explicam **70,5%
 - Em 30d: 850 registrados (60,6%) se comportam assim — a maioria abriu uma vez e não voltou.
 - Mesmo sem device-only, o problema de ativação persiste: conta criada ≠ uso. É sintoma de funil, não persona.
 
+#### O que o Espectador faz de fato (catálogo completo de eventos, 30d — n=74)
+> Resposta à pergunta do Mairon (04/ago): "o espectador faz o que se não é trackeável nenhuma ação dele?"
+
+| Comportamento real | Usuários | % |
+|---|---|---|
+| Só sessões (abre e sai; autocapture mostra taps na UI) | 42 | 57% |
+| **Abriu fluxo de review e abandonou** (21 flow_opens, 17 abandoned) | 15 | 20% |
+| Navegou feed/tabs sem entrar em restaurante (14 feed_pag, 7 tab_switch) | 11 | 15% |
+| Só mexeu no perfil | 4 | 5% |
+| Só abriu via push | 2 | 3% |
+
+- **Zero** `restaurant_card_tapped`, `restaurant_viewed`, `search_performed`, `map_opened`, `ranking_viewed` no grupo.
+- 73/74 emitem `$autocapture` (2.986 eventos em 30d) — interagem com a UI, mas quase nada vira evento semântico (feed view não é trackeado; só paginação).
+- Rolam o feed de *pessoas* (`home_people_feed_paginated`: 14) mas nunca o de *lugares* (`home_places_feed_paginated`: 0).
+
+**Diagnóstico em 2 camadas:**
+1. *Gargalo real de produto:* o passo feed → detalhe do restaurante não acontece para eles (0 card taps). O produto não converte leitura de review em intenção de "onde comer".
+2. *Gap de instrumentação:* interação de UI existe (autocapture) mas não é mapeada em eventos semânticos de navegação.
+
 ## Refino de nomes (proposta final)
 | Hipótese | Nome proposto | Por quê |
 |---|---|---|
