@@ -67,3 +67,51 @@ O filtro de conta corta o Explorador em 63% — a maior parte dele era device-on
 - `perfis_wau.png` — distribuição do WAU com conta (v2)
 - `perfis_acessos.png` — acessos/semana por perfil (v2)
 - `perfis_duracao.png` — duração de sessão por perfil (v2)
+
+## Slides (formato apresentação)
+
+### Slide 1 — A nova segmentação
+**Quem usa o Gomo com conta: 4 perfis, hierarquia exclusiva (n=251)**
+
+| Perfil | WAU | % | Acessos/sem | Duração |
+|---|---|---|---|---|
+| Criador | 110 | 43,8% | 5 (p90: 61) | ~36s |
+| Interator | 18 | 7,2% | 3 | ~20s |
+| Navegador | 49 | 19,5% | 2 | ~27s |
+| Explorador | 74 | 29,5% | 2 | ~19s |
+
+Regras: só quem tem conta · cada usuário em exatamente 1 perfil (maior nível de ação em 30d).
+**Insight:** quem tem conta e volta, cria — o Gomo é um app de criação (51% criam ou interagem), não de consumo passivo. O desafio não é engajar quem ativa; é ativar quem não navega (Explorador).
+
+### Slide 2 — Criador (110 · 43,8%) — o motor de conteúdo
+- 1.696 reviews em 30d (mediana 3,5/usuário) + listas e comentários.
+- Sessão mais longa (~36s) e mais frequente (5/sem, p90 61).
+- 36% também reagem — criação e interação andam juntas.
+- **Insight:** top 5 = 41% das reviews, top 20 = 78%. O feed depende de ~20 pessoas; o backend marca só 2 como `influenciador` (55× menos que a realidade).
+- **Ação:** programa de creators de 2 → 20+ (flag já existe). [Owner: Comunidade]
+
+### Slide 3 — Interator (18 · 7,2%) — o estágio inicial
+- Reage, curte, segue — 50% do grupo só reage; comenta pouco (9/7d no app todo).
+- 100% com conta; 3 acessos/sem, sessão ~20s.
+- **Insight:** está a 1 passo da criação — 36% dos Criadores também reagem. Interação precede criação.
+- **Ação:** nudge pós-reação ("viu algo bom? conta pra gente") como CTA da 1ª review. [Owner: Product]
+
+### Slide 4 — Navegador (49 · 19,5%) — o core value
+- Puro discovery: 103 views de restaurante, 35 buscas, 15 rankings em 30d. Zero criação/interação.
+- 100% com conta; sessão de leitura (~27s) acima de Explorador.
+- **Insight:** é quem valida o "onde vou comer" — mas é raso (2,1 views/usuário/30d). O produto não mede nem incentiva a decisão.
+- **Ação:** medir conversão leitura→decisão (salvar, rota) e testar "perto de mim" / recomendação. [Owner: Product]
+
+### Slide 5 — Explorador (74 · 29,5%) — falha de ativação, não persona
+- Abre 2×/semana e sai: nenhuma ação rastreada além da sessão.
+- 20% abriu o fluxo de review e abandonou (17 abandonos); zero taps em card de restaurante.
+- Em 30d, 850 cadastrados (60,6%) se comportam assim.
+- **Insight:** o elo feed → detalhe do restaurante não acontece — o app não converte leitura em intenção de "onde comer".
+- **Ação:** instrumentar `restaurant_card_tapped` + onboarding discovery-first (busca antes de review). [Owner: Eng + Growth]
+
+### Slide 6 — Síntese: o insight da nova análise
+**O Gomo tem um núcleo criador saudável (43,8% do WAU com conta) e um vazamento de ativação de 29,5%.**
+- A hierarquia exclusiva prova: cada perfil é um degrau — Explorador → Navegador → Interator → Criador.
+- Prioridade: consertar o 1º degrau (Explorador → Navegador) — é o maior grupo e o elo quebrado (0 card taps).
+- Secundário: proteger o topo (Criador) da concentração de 78%/20 pessoas.
+- Risco de não agir: metade do WAU com conta fica presa na base, e o feed depende de 20 pessoas.
