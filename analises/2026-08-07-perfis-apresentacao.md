@@ -115,3 +115,33 @@ Regras: só quem tem conta · cada usuário em exatamente 1 perfil (maior nível
 - Prioridade: consertar o 1º degrau (Explorador → Navegador) — é o maior grupo e o elo quebrado (0 card taps).
 - Secundário: proteger o topo (Criador) da concentração de 78%/20 pessoas.
 - Risco de não agir: metade do WAU com conta fica presa na base, e o feed depende de 20 pessoas.
+
+## Retenção por perfil (07/ago/2026)
+
+### Retenção 30d → 7d (cadastrados ativos em 30d que voltaram na última semana) — métrica principal
+| Perfil | Base 30d | WAU 7d | Retenção |
+|---|---|---|---|
+| Criador | 227 | 110 | **48,5%** |
+| Interator | 52 | 18 | 34,6% |
+| Navegador | 274 | 49 | 17,9% |
+| Explorador | 850 | 74 | **8,7%** |
+
+Gradiente monotônico: 5,6× entre Criador e Explorador. O degrau de comportamento prevê retenção.
+
+### Retorno semana a semana (do grupo WAU 28/jul–03/ago, n=251)
+| Perfil | n | Ativo em W-1 | W-2 | W-3 | Voltou 04–07/ago* |
+|---|---|---|---|---|---|
+| Criador | 110 | **85%** | 29% | 16% | 37%* |
+| Interator | 18 | 72% | 22% | 17% | 17%* |
+| Navegador | 49 | 61% | 6% | 2% | 6%* |
+| Explorador | 74 | 38% | 7% | 7% | 3%* |
+
+*04–07/ago parcial (4 de 7 dias + lag de ingestion) — subestima. W-2/W-3 refletem base em crescimento (muitos usuários são recentes).
+
+### Novos na semana (sem atividade nas 3 semanas anteriores)
+- Criador: 12% · Interator: 28% · Navegador: 37% · **Explorador: 51%** — metade do Explorador é usuário recém-chegado que não ativou.
+
+### Insight de retenção
+1. **Perfil prevê retenção** — a hierarquia comportamental é também uma hierarquia de retenção (48,5% → 8,7%).
+2. **Explorador = novo usuário não ativado** — 51% são novos na semana e 91% não voltam no mês. Interceptar na 1ª semana (onboarding discovery-first) é a alavanca de maior impacto.
+3. **Criador é o núcleo estável** — 85% semana a semana; 48,5% do mês. Proteger (programa de creators).
